@@ -83,20 +83,6 @@ func GetTokenSettings() *App {
 	return &app
 }
 
-//GetServerSetting from conf/cfg.ini file
-func GetServerSetting() *Server {
-	var serve Server
-	cfg, err := ini.Load(`conf/cfg.ini`)
-	if err != nil {
-		log.Fatalf(`read config from ini file err:%s`, err)
-	}
-	serverSection := cfg.Section(`SERVER`)
-	if exc := serverSection.MapTo(&serve); exc != nil {
-		log.Fatalf(`read from conf.ini error: %s`, exc.Error())
-	}
-	serverSection.MapTo(&serve)
-	return &serve
-}
 func CreateTables(db *sql.DB) {
 	_, exc := db.Exec(`CREATE TABLE IF NOT EXISTS "User"
 (
