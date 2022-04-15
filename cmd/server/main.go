@@ -109,7 +109,7 @@ func main() {
 	}
 	appSettings := settings.GetTokenSettings()
 	r := InitApp(db, appSettings.JwtSecretKey, appSettings.AccessTokenExpiration, appSettings.RefreshTokenExpiration)
-	if err := r.Run(fmt.Sprintf(`:8080`); err != nil {
+	if err := r.Run(`:8080`); err != nil {
 		log.Fatalf(`run server err: %s`, err.Error())
 	}
 }
